@@ -1,0 +1,37 @@
+{
+  "name": "bvg-quiz",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.33.3",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro",
+    "lint": "eslint . --max-warnings=0",
+    "test:schema": "vitest run tests/schema.test.ts",
+    "test:privacy": "playwright test tests/privacy-smoke.spec.ts",
+    "test:all": "pnpm check && pnpm lint && pnpm vitest run && pnpm build && pnpm test:privacy"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "6.2.2",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^22.19.17",
+    "@typescript-eslint/parser": "^8.59.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  }
+}

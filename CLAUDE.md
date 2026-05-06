@@ -23,6 +23,8 @@ Eine standalone, mobile-first Microsite, auf der Berliner:innen 12 Persönlichke
 <!-- GSD:stack-start source:research/STACK.md -->
 ## Technology Stack
 
+> _Last verified: 2026-05-05 (research session 01-RESEARCH.md). Zod is at v4 transitively; Astro Fonts API is stable, not experimental._
+
 ## TL;DR (One-Paragraph Recommendation)
 ## Recommended Stack
 ### Core Technologies
@@ -32,7 +34,7 @@ Eine standalone, mobile-first Microsite, auf der Berliner:innen 12 Persönlichke
 | **Tailwind CSS** | `^4.1` (via `@tailwindcss/vite`) | Utility-first styling | Tailwind v4 is **stable** (released Jan 2025) and uses a **CSS-first config** (no `tailwind.config.js`) — much friendlier for a non-engineer. Vite plugin (not the deprecated `@astrojs/tailwind` integration) is the **2026-correct** integration. Eliminates custom CSS hand-rolling, which is where non-engineers + AI most often produce broken/inconsistent code. |
 | **TypeScript** | `^5.6` (bundled with Astro) | Type-checking for quiz data + scoring logic | Astro projects are TypeScript-by-default; turning it off is more work than leaving it on. **For Marcel: you write JS-flavored code; TypeScript runs in the background catching typos.** Critical for the scoring matrix (an off-by-one in a points map is a silent bug — TS catches it). |
 | **Vanilla JavaScript** | ES2024 native, no framework | Quiz interactivity (question advance, answer click, result reveal, "nochmal machen") | Quiz interactivity is **trivial** (~150 lines): show one of 12 questions at a time, store 12 answers in `sessionStorage`, sum a points object, redirect to result page. **No need for React/Vue/Svelte** — they would each add 30-50 KB of runtime JS for zero added capability. Pure JS keeps page weight under 20 KB and is the **easiest possible code for Claude to maintain and Marcel to read**. |
-| **Zod** | `^3.24` (peer of Astro) | Runtime schema validation for quiz JSON | Already a transitive dependency of Astro Content Collections. Catches malformed quiz data at build time ("question 7 has no `lineWeights` for U6") instead of at user runtime. |
+| **Zod** | `^4.3.6 (transitive of Astro 6.2.2; do not pin manually)` | Runtime schema validation for quiz JSON | Already a transitive dependency of Astro Content Collections. Catches malformed quiz data at build time ("question 7 has no `lineWeights` for U6") instead of at user runtime. **NOTE:** Zod 4 (not 3) — error format is `result.error.issues[]`, not `result.error.errors[]`. Plans use Zod 4 syntax. |
 ### Supporting Libraries
 | Library | Version | Purpose | When to Use |
 |---------|---------|---------|-------------|
@@ -119,7 +121,7 @@ Eine standalone, mobile-first Microsite, auf der Berliner:innen 12 Persönlichke
 - [Astro i18n routing docs](https://docs.astro.build/en/guides/internationalization/) — confirmed `prefixDefaultLocale: false` config pattern
 - [Astro Content Collections docs](https://docs.astro.build/en/guides/content-collections/) — confirmed JSON loader + Zod validation
 - [Astro Image guide](https://docs.astro.build/en/guides/images/) — confirmed `public/` for downloadable original-quality assets
-- [Astro Fonts API experimental docs](https://docs.astro.build/en/reference/experimental-flags/fonts/) — confirmed Fontsource self-hosting pattern
+- [Astro Fonts API (stable in 6.x — top-level `fonts:` config, NOT `experimental.fonts:`)](https://docs.astro.build/en/guides/fonts/) — confirmed Fontsource self-hosting pattern
 - [Tailwind CSS v4 stable](https://tailwindcss.com/blog) — confirmed v4 stable since Jan 2025, current minor v4.1+
 - [Astro 5.2 + Tailwind v4 announcement](https://astro.build/blog/astro-520/) — confirmed Vite plugin is the canonical integration; `@astrojs/tailwind` deprecated for v4
 - [Public Sans (USWDS)](https://public-sans.digital.gov/) — confirmed SIL OFL licensed, accessibility-tested
