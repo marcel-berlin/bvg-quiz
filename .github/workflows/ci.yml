@@ -48,10 +48,10 @@ jobs:
           node-version: "22"
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - name: Schema test (D-14) + package-grep test (SETUP-05 tripwire)
-        run: pnpm vitest run
-      - name: Astro build (Zod content collection validation runs here)
+      - name: Astro build (Zod content collection validation runs here; produces dist/_astro/ for bundle-size test)
         run: pnpm build
+      - name: Schema test (D-14) + package-grep tripwire (SETUP-05) + bundle-size budget (PERF-03 — reads dist/_astro/)
+        run: pnpm vitest run
       - uses: actions/upload-artifact@v4
         with:
           name: dist
