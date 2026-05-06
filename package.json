@@ -16,7 +16,7 @@
     "lint": "eslint . --max-warnings=0",
     "test:schema": "vitest run tests/schema.test.ts",
     "test:privacy": "playwright test tests/privacy-smoke.spec.ts",
-    "test:all": "pnpm check && pnpm lint && pnpm vitest run && pnpm build && pnpm test:privacy"
+    "test:all": "pnpm check && pnpm lint && pnpm build && pnpm vitest run && pnpm test:privacy"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
