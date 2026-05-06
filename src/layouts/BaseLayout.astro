@@ -1,0 +1,25 @@
+---
+// src/layouts/BaseLayout.astro
+import { Font } from "astro:assets";
+import "../styles/global.css";
+
+interface Props {
+  lang?: string;
+  title?: string;
+}
+
+const { lang = "de", title = "BVG U-Bahn Personality Quiz" } = Astro.props;
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-display" preload />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
