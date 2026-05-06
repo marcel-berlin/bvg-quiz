@@ -115,7 +115,7 @@ Das Repo ist als **Two-Repo-Split** organisiert:
 | Repo | Sichtbarkeit | Inhalt | Link |
 |------|--------------|--------|------|
 | `marcel-berlin/bvg-quiz` | **public** | App-Code, Vercel-Deploy-Quelle, Branch-Protection — was du gerade liest | https://github.com/marcel-berlin/bvg-quiz |
-| `marcel-berlin/bvg-quiz-private` | **private** | Vollständige GSD-Audit-Spur: `.planning/PROJECT.md`, `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, `.planning/privacy.md`, alle Phasen-Pläne und SUMMARYs | nur für Marcel sichtbar — bei Pitch-Bedarf Kontakt: marcel.puppik@gmail.com |
+| `marcel-berlin/bvg-quiz-private` | **private** | Vollständige GSD-Audit-Spur: `.planning/PROJECT.md`, `.planning/ROADMAP.md`, `.planning/REQUIREMENTS.md`, `.planning/privacy.md`, alle Phasen-Pläne und SUMMARYs | nur für Marcel sichtbar — bei Pitch-Bedarf via GitHub `@marcel-berlin` anfragen |
 
 Im öffentlichen Repo gibt es kein `.planning/`-Verzeichnis. Wer den Pitch-Kontext braucht (Privacy-Manifest, Voice-Leitplanken, Decision-Log), bekommt ihn aus dem privaten Repo.
 
