@@ -20,7 +20,7 @@
   --color-line-u1: #7DAD4C;  /* Gelbgrün */
   --color-line-u2: #DA421E;  /* Blutorange (rot) */
   --color-line-u3: #16683D;  /* Türkisgrün */
-  --color-line-u4: #F0D722;  /* Verkehrsgelb — gleicher Hex wie BVG-Yellow, semantisch unterschiedlich */
+  --color-line-u4: var(--color-bvg-yellow);  /* Verkehrsgelb — explicitly the same yellow as the brand token (no silent drift). Semantically still distinct: bg-line-u4 = U4-marker, bg-bvg-yellow = brand CTA. */
   --color-line-u5: #AD5937;  /* Kupferbraun */
   --color-line-u6: #8C6DAB;  /* Blaulila */
   --color-line-u7: #009BD5;  /* Lichtblau */
