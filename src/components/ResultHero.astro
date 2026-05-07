@@ -2,11 +2,13 @@
 // src/components/ResultHero.astro
 interface Props {
   line: "u1" | "u2" | "u3" | "u4" | "u5" | "u6" | "u7" | "u8" | "u9";
-  shortName: string;       // "U8"
   schluesselwort: string;  // "Schicksalslinie"
   headline: string;        // "Du fährst nicht U8. Die U8 fährt dich."
 }
-const { line, shortName, schluesselwort, headline } = Astro.props;
+const { line, schluesselwort, headline } = Astro.props;
+// shortName is derived from `line` so it is always in sync with the slug
+// (single source of truth — see WR-03 in 02-REVIEW.md). "u8" -> "U8".
+const shortName = line.toUpperCase();
 
 // CRITICAL — Tailwind JIT class-discovery safety:
 // Tailwind v4's JIT scanner only finds class literals at build-time scan.
