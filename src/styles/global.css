@@ -1,10 +1,46 @@
 @import "tailwindcss";
 
 @theme {
+  /* --- Phase 1 (existierend, NICHT ÄNDERN — load-bearing für BaseLayout.astro Astro 6 Fonts API) --- */
   --font-sans: "Public Sans", system-ui, sans-serif;
   --font-display: "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  /* --- Phase 2: BVG-Marke --- */
+  /* WARN: --color-bvg-yellow ist NIEMALS color: ; nur background: mit dunklem Text. Siehe D-18 + .planning/visual/design-system.md §"BVG-Yellow Application Rule". Kontrast 1.4:1 auf weiß = WCAG-Fail. */
+  --color-bvg-yellow: #F0D722;        /* Verkehrsgelb (VBB-Spec via encycolorpedia) */
+  --color-bvg-yellow-dark: #C7B11C;   /* Hover/Pressed state */
+
+  --color-text-dark: #1A1A1A;
+  --color-text-muted: #5A5A5A;
+  --color-surface-default: #FFFFFF;
+  --color-surface-card: #F7F7F4;       /* warm-grey card BG */
+
+  /* --- Phase 2: 9 U-Bahn-Linien (Wikimedia commons:Berlin_transit_icons / VBB-Spec) --- */
+  /* Slug-namen entsprechen src/content.config.ts enum (lowercase u1..u9) */
+  --color-line-u1: #7DAD4C;  /* Gelbgrün */
+  --color-line-u2: #DA421E;  /* Blutorange (rot) */
+  --color-line-u3: #16683D;  /* Türkisgrün */
+  --color-line-u4: #F0D722;  /* Verkehrsgelb — gleicher Hex wie BVG-Yellow, semantisch unterschiedlich */
+  --color-line-u5: #AD5937;  /* Kupferbraun */
+  --color-line-u6: #8C6DAB;  /* Blaulila */
+  --color-line-u7: #009BD5;  /* Lichtblau */
+  --color-line-u8: #224F86;  /* Enzianblau */
+  --color-line-u9: #F3791D;  /* Pastellorange */
+
+  /* --- Phase 2: Typo-Skala --- */
+  --text-display-h1: 2.5rem;       /* 40 px — Landing- + Result-Headline */
+  --text-display-h1--line-height: 1.1;
+  --text-display-h2: 1.75rem;      /* 28 px — Sub-Headline */
+  --text-display-h2--line-height: 1.2;
+  --text-h3: 1.25rem;              /* 20 px — Frage-Text */
+  --text-h3--line-height: 1.4;
+  --text-body: 1rem;               /* 16 px — Antworten + Beschreibungen */
+  --text-body--line-height: 1.5;
+  --text-caption: 0.875rem;        /* 14 px — Fine-Print + Share-Captions + Linien-Numerals */
+  --text-caption--line-height: 1.4;
 }
 
 body {
   font-family: var(--font-sans);
+  color: var(--color-text-dark);
 }
