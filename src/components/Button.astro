@@ -1,11 +1,24 @@
 ---
 // src/components/Button.astro
-interface Props {
+// Discriminated-union Props: `type` is type-level mutually exclusive with `href`.
+// Caller writing <Button href="/foo" type="submit"> is now a TypeScript error
+// instead of silently dropping the `type` prop on the floor (WR-02).
+type ButtonProps = {
   variant?: "primary" | "secondary";
-  href?: string;
+  href?: undefined;
   type?: "button" | "submit";
-}
-const { variant = "primary", href, type = "button" } = Astro.props;
+};
+type AnchorProps = {
+  variant?: "primary" | "secondary";
+  href: string;
+  type?: never;
+};
+type Props = ButtonProps | AnchorProps;
+
+const props = Astro.props as Props;
+const variant = props.variant ?? "primary";
+const href = "href" in props ? props.href : undefined;
+const type = href === undefined ? ((props as ButtonProps).type ?? "button") : undefined;
 
 const base =
   "inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-dark";
@@ -20,6 +33,6 @@ const cls = `${base} ${variants[variant]}`;
 
 const Tag = href ? "a" : "button";
 ---
-<Tag class={cls} href={href} type={!href ? type : undefined}>
+<Tag class={cls} href={href} type={type}>
   <slot />
 </Tag>

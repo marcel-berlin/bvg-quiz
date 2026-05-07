@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
 import ResultHero from "../components/ResultHero.astro";
 ---
-<BaseLayout lang="de" title="BVG Quiz Canary — Voice-Test">
+<BaseLayout lang="de" title="BVG Quiz Canary: Voice-Test">
   <Fragment slot="head">
     <meta name="robots" content="noindex" />
   </Fragment>
@@ -14,7 +14,7 @@ import ResultHero from "../components/ResultHero.astro";
       <h1 class="text-display-h1 font-bold">Voice-Canary</h1>
       <p class="mt-2 text-text-muted">
         Drei Probefragen + ein Probe-Result. Bitte einmal lesen
-        und unten Bescheid geben — danke.
+        und unten Bescheid geben, danke.
       </p>
     </header>
 
@@ -24,7 +24,7 @@ import ResultHero from "../components/ResultHero.astro";
       <Card>
         <h3 class="text-h3 font-semibold">Frage 1</h3>
         <p class="mt-2 text-body">
-          Sonntag, 14:00. Wo bist du? — und wir bitten höflich um eine ehrliche Antwort.
+          Sonntag, 14:00. Wo bist du? Wir bitten höflich um eine ehrliche Antwort.
         </p>
       </Card>
 
@@ -47,20 +47,19 @@ import ResultHero from "../components/ResultHero.astro";
       <h2 id="probe-result" class="sr-only">Probe-Result</h2>
       <ResultHero
         line="u8"
-        shortName="U8"
         schluesselwort="Schicksalslinie"
         headline="Du fährst nicht U8. Die U8 fährt dich."
       />
       <Card as="article">
         <p class="text-body">
-          Die U8 ist keine Linie, die du wählst. Sie ist eine, die dich findet —
-          meistens am Kotti, meistens nach Mitternacht. Du steigst ein, weil
+          Die U8 ist keine Linie, die du wählst. Sie ist eine, die dich findet.
+          Meistens am Kotti, meistens nach Mitternacht. Du steigst ein, weil
           etwas dich ruft, und du steigst aus, wenn die U8 entscheidet, dass
-          es Zeit ist. Heinrich-Heine, Hermannstraße, Schönleinstraße —
-          die Stationen sind keine Orte, sondern Zustände. Pünktlichkeit
-          ist hier Verhandlungssache, aber sie hält am Ende immer ihr Wort:
-          du kommst an. Vielleicht nicht da, wo du wolltest. Aber genau da,
-          wo du heute hingehörst.
+          es Zeit ist. Heinrich-Heine, Hermannstraße, Schönleinstraße: die
+          Stationen sind keine Orte, sondern Zustände. Pünktlichkeit ist hier
+          Verhandlungssache, aber sie hält am Ende immer ihr Wort. Du kommst
+          an. Vielleicht nicht da, wo du wolltest. Aber genau da, wo du heute
+          hingehörst.
         </p>
       </Card>
     </section>
@@ -68,11 +67,11 @@ import ResultHero from "../components/ResultHero.astro";
     <footer class="border-t pt-6 text-text-muted">
       <p class="text-body">
         Wie klingt das? Schreib mir kurz auf dem Channel, auf dem du diesen
-        Link bekommen hast — was sich anfühlt wie BVG, und was nicht.
+        Link bekommen hast: was sich anfühlt wie BVG, und was nicht.
       </p>
       <p class="mt-4 text-caption">
-        Diese Seite ist noindex und nicht von der Hauptnav verlinkt —
-        direkter Link only.
+        Diese Seite ist noindex und nicht von der Hauptnav verlinkt.
+        Direkter Link only.
       </p>
     </footer>
   </main>
