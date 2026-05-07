@@ -1,0 +1,39 @@
+---
+// src/components/ResultHero.astro
+interface Props {
+  line: "u1" | "u2" | "u3" | "u4" | "u5" | "u6" | "u7" | "u8" | "u9";
+  shortName: string;       // "U8"
+  schluesselwort: string;  // "Schicksalslinie"
+  headline: string;        // "Du fährst nicht U8. Die U8 fährt dich."
+}
+const { line, shortName, schluesselwort, headline } = Astro.props;
+
+// CRITICAL — Tailwind JIT class-discovery safety:
+// Tailwind v4's JIT scanner only finds class literals at build-time scan.
+// `bg-line-${line}` as a bare template literal would NOT be discovered —
+// the explicit 9-key map below guarantees all 9 utility classes are
+// present as literals. Source: PATTERNS.md "Tailwind v4 JIT Class-Discovery Safety".
+const lineClass = {
+  u1: "bg-line-u1",
+  u2: "bg-line-u2",
+  u3: "bg-line-u3",
+  u4: "bg-line-u4",
+  u5: "bg-line-u5",
+  u6: "bg-line-u6",
+  u7: "bg-line-u7",
+  u8: "bg-line-u8",
+  u9: "bg-line-u9",
+}[line];
+---
+<header class={`relative px-6 py-12 ${lineClass} text-white`}>
+  <div class="flex items-baseline gap-3">
+    <span
+      class="font-display font-bold text-5xl leading-none"
+      aria-hidden="true"
+    >{shortName}</span>
+    <span class="text-caption uppercase tracking-wide opacity-80">
+      {schluesselwort}
+    </span>
+  </div>
+  <h1 class="mt-4 text-display-h1 font-bold max-w-2xl">{headline}</h1>
+</header>
