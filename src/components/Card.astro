@@ -1,0 +1,10 @@
+---
+// src/components/Card.astro
+interface Props {
+  as?: "section" | "article" | "div";
+}
+const { as: Tag = "section" } = Astro.props;
+---
+<Tag class="bg-surface-card rounded-lg p-6">
+  <slot />
+</Tag>

@@ -1,0 +1,25 @@
+---
+// src/components/Button.astro
+interface Props {
+  variant?: "primary" | "secondary";
+  href?: string;
+  type?: "button" | "submit";
+}
+const { variant = "primary", href, type = "button" } = Astro.props;
+
+const base =
+  "inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-dark";
+
+// D-18 ENFORCEMENT: bg-bvg-yellow + text-text-dark are hardwired as a pair
+// in variants.primary. Neither can be used alone — accidental misuse blocked.
+const variants = {
+  primary: "bg-bvg-yellow text-text-dark hover:bg-bvg-yellow-dark",
+  secondary: "bg-surface-card text-text-dark hover:bg-bvg-yellow hover:text-text-dark border border-text-dark",
+};
+const cls = `${base} ${variants[variant]}`;
+
+const Tag = href ? "a" : "button";
+---
+<Tag class={cls} href={href} type={!href ? type : undefined}>
+  <slot />
+</Tag>
