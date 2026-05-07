@@ -3,16 +3,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
 import ResultHero from "../components/ResultHero.astro";
-
-// Contact hrefs come from Vercel env vars (PII out of repo).
-// Set PUBLIC_CANARY_WHATSAPP (e.g. 4915XXXXXXX, no '+', no spaces)
-// and PUBLIC_CANARY_EMAIL (e.g. someone@example.com) in the Vercel
-// dashboard before sharing the /canary link with testers.
-// Astro inlines PUBLIC_* env vars into the static HTML at build time.
-const waNumber = import.meta.env.PUBLIC_CANARY_WHATSAPP ?? "";
-const mailAddr = import.meta.env.PUBLIC_CANARY_EMAIL ?? "";
-const waHref = waNumber ? `https://wa.me/${waNumber}` : "https://wa.me/";
-const mailHref = mailAddr ? `mailto:${mailAddr}` : "mailto:";
 ---
 <BaseLayout lang="de" title="BVG Quiz Canary — Voice-Test">
   <Fragment slot="head">
@@ -77,19 +67,12 @@ const mailHref = mailAddr ? `mailto:${mailAddr}` : "mailto:";
 
     <footer class="border-t pt-6 text-text-muted">
       <p class="text-body">
-        Wie klingt das? Schreib mir kurz — was sich anfühlt wie BVG, und was
-        nicht.
-      </p>
-      <p class="mt-2 text-body">
-        <a href={waHref} class="underline">WhatsApp</a>
-        &nbsp;·&nbsp;
-        <a href={mailHref} class="underline">Mail</a>
+        Wie klingt das? Schreib mir kurz auf dem Channel, auf dem du diesen
+        Link bekommen hast — was sich anfühlt wie BVG, und was nicht.
       </p>
       <p class="mt-4 text-caption">
         Diese Seite ist noindex und nicht von der Hauptnav verlinkt —
-        direkter Link only. Kontakt-Daten werden via Vercel-Env-Vars
-        (PUBLIC_CANARY_WHATSAPP / PUBLIC_CANARY_EMAIL) injiziert,
-        damit keine PII im Repo landet.
+        direkter Link only.
       </p>
     </footer>
   </main>
