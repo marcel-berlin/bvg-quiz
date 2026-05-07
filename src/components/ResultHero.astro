@@ -24,14 +24,30 @@ const lineClass = {
   u8: "bg-line-u8",
   u9: "bg-line-u9",
 }[line];
+
+// WCAG 2.1 AA contrast: white text fails on light line colours (U1, U2, U4, U7, U9).
+// Per-line text colour, computed against the hexes in global.css:20-28.
+// All combinations clear the 4.5:1 body-text threshold.
+// See .planning/visual/design-system.md "Per-Line Text Colour" + 02-REVIEW.md CR-01.
+const textClass = {
+  u1: "text-text-dark",
+  u2: "text-text-dark",
+  u3: "text-white",
+  u4: "text-text-dark",
+  u5: "text-white",
+  u6: "text-text-dark",
+  u7: "text-text-dark",
+  u8: "text-white",
+  u9: "text-text-dark",
+}[line];
 ---
-<header class={`relative px-6 py-12 ${lineClass} text-white`}>
+<header class={`relative px-6 py-12 ${lineClass} ${textClass}`}>
   <div class="flex items-baseline gap-3">
     <span
       class="font-display font-bold text-5xl leading-none"
       aria-hidden="true"
     >{shortName}</span>
-    <span class="text-caption uppercase tracking-wide opacity-80">
+    <span class="text-caption uppercase tracking-wide font-medium">
       {schluesselwort}
     </span>
   </div>
