@@ -18,7 +18,7 @@
 import { test } from "@playwright/test";
 import allowlist from "../privacy-allowlist.json" with { type: "json" };
 
-const ROUTES = ["/", "/en/"];
+const ROUTES = ["/", "/en/", "/canary"];
 const SAME_ORIGIN_HOSTS = ["localhost", "127.0.0.1", "bvgquiz.vercel.app"];
 
 type AllowEntry = { origin: string; reason: string; added: string };
