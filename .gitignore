@@ -29,3 +29,7 @@ test-results/
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code local settings + worktrees (per-developer, not shared)
+.claude/settings.local.json
+.claude/worktrees/
